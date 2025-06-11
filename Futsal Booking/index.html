@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futsal Booking - Beranda</title>
+    <link rel="stylesheet" href="/assets/css/styleB.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">FUTSAL BOOKING</div>
+        <nav>
+          <a href="youtube.com">BERANDA</a>
+          <a href="#">CARA BOOKING</a>
+          <a href="#">TENTANG KAMI</a>
+          <a href="/pages/login.html">ACCOUNT</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="lapangan-display" class="lapangan-box">LAPANGAN 1</div>
+
+      <div class="form-box">
+        <div class="lapangan-options">
+          <button onclick="gantiLapangan('lap1')" id="btn-lap1" class="active">
+            LAPANGAN 1
+          </button>
+          <button onclick="gantiLapangan('lap2')" id="btn-lap2">
+            LAPANGAN 2
+          </button>
+        </div>
+
+        <label for="tanggal">Pilih Tanggal:</label>
+        <select id="tanggal">
+          <option>Hari ini</option>
+          <option>Besok</option>
+          <option>Lusa</option>
+        </select>
+
+        <label for="jam">Jam Tersedia:</label>
+        <select id="jam">
+          <option>08:00 - 10:00</option>
+          <option>10:00 - 12:00</option>
+          <option>12:00 - 14:00</option>
+          <option>14:00 - 16:00</option>
+          <option>16:00 - 18:00</option>
+          <option>18:00 - 20:00</option>
+          <option>20:00 - 22:00</option>
+        </select>
+
+        <button>BOOKING SEKARANG</button>
+      </div>
+    </main>
+
+    <footer>
+      ALAMAT KAMI: JL. KENANGAN INDAH SANG MANTAN, BLOK MANTAN, KECAMATAN ASAL,
+      KABUPATEN NGAWUOR<br />
+      <div class="bantuan">BUTUH BANTUAN? <a href="#">KLIK DISINI</a></div>
+    </footer>
+
+    <script>
+      function gantiLapangan(lap) {
+        const display = document.getElementById("lapangan-display");
+        const btn1 = document.getElementById("btn-lap1");
+        const btn2 = document.getElementById("btn-lap2");
+
+        if (lap === "lap1") {
+          display.textContent = "LAPANGAN 1";
+          display.style.backgroundColor = "#111e60";
+          btn1.classList.add("active");
+          btn2.classList.remove("active");
+        } else {
+          display.textContent = "LAPANGAN 2";
+          display.style.backgroundColor = "#2e51d1";
+          btn2.classList.add("active");
+          btn1.classList.remove("active");
+        }
+      }
+    </script>
+  </body>
+</html>
