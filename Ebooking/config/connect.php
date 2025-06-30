@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root"; 
 $password = "";     
-$database  = "users_db";
+$database  = "db_futsal";
 
 $conn = mysqli_connect($host, $user, $password, $database);
 

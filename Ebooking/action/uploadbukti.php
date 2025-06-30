@@ -5,7 +5,7 @@ require_once '../config/connect.php';
 if (isset($_POST['upload'])) {
     $booking_id = $_POST['booking_id'];
     $upload_dir = "../uploads/";
-    $file_name = basename($_FILES["bukti"]["name"]);
+    $file_name = basename($_FILES["bukti"]["nama"]);
     $target_file = $upload_dir . time() . "_" . $file_name;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 

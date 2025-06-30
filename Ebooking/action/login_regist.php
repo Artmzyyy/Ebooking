@@ -20,7 +20,7 @@ if (isset($_POST['register'])) {
         $_SESSION['register_error'] = 'Email sudah terdaftar!';
         $_SESSION['active_form'] = 'register';
     } else {
-        $insert = $conn->query("INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
+        $insert = $conn->query("INSERT INTO users (nama, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
         if (!$insert) {
             die("Insert error: " . $conn->error);
         }
