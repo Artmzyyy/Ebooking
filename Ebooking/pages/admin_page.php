@@ -12,72 +12,67 @@ $result = $conn->query("SELECT bookings.*, users.nama
                         ORDER BY tanggal DESC, jam ASC");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-  </head>
-  <body>
-    <nav>
-      <ul style="list-style-type: none">
-        <li> <a href="#">Cek Data User</a></li>
-        <li> <a href="../action/logout.php">Logout</a></li>
-      </ul>
-    </nav>
-    <h2>
-      Selamat datang,
-      <?= $_SESSION['nama']; ?>
-      (ADMIN)
-    </h2>
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar-minimal">
+    <a href="admin_user.php" class="btn-neon">👥 Cek Data User</a>
+    <a href="../action/logout.php" class="btn-neon">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h2>Halo, <?= $_SESSION['nama']; ?> (ADMIN)</h2>
     <p>Berikut daftar semua booking:</p>
 
-    <table border="1" cellpadding="10" cellspacing="0">
-  <tr>
-    <th>Nama</th>
-    <th>Lapangan</th>
-    <th>Tanggal</th>
-    <th>Jam</th>
-    <th>Status</th>
-    <th>Bukti</th>
-    <th>Aksi</th>
-  </tr>
-
-  <?php while ($row = $result->fetch_assoc()): ?>
-    <tr>
-      <td><?= $row['nama']; ?></td>
-      <td><?= $row['lapangan']; ?></td>
-      <td><?= $row['tanggal']; ?></td>
-      <td><?= $row['jam']; ?></td>
-      <td style="color:
-        <?= ($row['status'] == 'acc') ? 'green' :
-             (($row['status'] == 'cancelled') ? 'red' :
-             (($row['status'] == 'menunggu_validasi') ? 'orange' : 'gray')) ?>;
-      ">
-        <?= strtoupper($row['status']); ?>
-      </td>
-
-      <td>
-        <?php if (!empty($row['bukti_bayar'])): ?>
-          <a href="<?= $row['bukti_bayar']; ?>" target="_blank">Lihat Bukti</a>
-        <?php else: ?>
-          <span style="color: gray;">Belum Ada</span>
-        <?php endif; ?>
-      </td>
-
-      <td>
-        <?php if ($row['status'] != 'acc' && $row['status'] != 'cancelled'): ?>
-          <a href="../action/update_status.php?id=<?= $row['id']; ?>&status=acc">✅ ACC</a> |
-          <a href="../action/update_status.php?id=<?= $row['id']; ?>&status=cancelled" onclick="return confirm('Yakin membatalkan booking?')">❌ Cancel</a>
-        <?php else: ?>
-          <span style="color: gray;">-</span>
-        <?php endif; ?>
-      </td>
-    </tr>
-  <?php endwhile; ?>
-</table>
-
-  </body>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Lapangan</th>
+            <th>Tanggal</th>
+            <th>Jam</th>
+            <th>Status</th>
+            <th>Bukti</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php while ($row = $result->fetch_assoc()): ?>
+          <tr>
+            <td><?= $row['nama']; ?></td>
+            <td><?= $row['lapangan']; ?></td>
+            <td><?= $row['tanggal']; ?></td>
+            <td><?= $row['jam']; ?></td>
+            <td class="status <?= $row['status']; ?>">
+              <?= strtoupper($row['status']); ?>
+            </td>
+            <td>
+              <?php if (!empty($row['bukti_bayar'])): ?>
+                <a href="<?= $row['bukti_bayar']; ?>" target="_blank" class="btn-mini">Lihat</a>
+              <?php else: ?>
+                <span class="text-muted">Belum Ada</span>
+              <?php endif; ?>
+            </td>
+            <td>
+              <?php if ($row['status'] != 'acc' && $row['status'] != 'cancelled'): ?>
+                <a href="../action/update_status.php?id=<?= $row['id']; ?>&status=acc" class="btn-mini acc">✅ ACC</a>
+                <a href="../action/update_status.php?id=<?= $row['id']; ?>&status=cancelled" class="btn-mini cancel" onclick="return confirm('Yakin membatalkan booking?')">❌ Cancel</a>
+              <?php else: ?>
+                <span class="text-muted">-</span>
+              <?php endif; ?>
+            </td>
+          </tr>
+        <?php endwhile; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
 </html>

@@ -22,117 +22,97 @@ body {
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 247, 255, 0.3);
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   height: 60px;
   z-index: 1000;
-  gap: 15px;
 }
 
-.btn-neon {
+.navbar-minimal .btn-neon {
   background-color: #00f7ff;
   color: #000;
   padding: 6px 14px;
+  border: none;
   border-radius: 6px;
+  font-size: 14px;
   font-weight: bold;
   text-decoration: none;
+  transition: 0.3s ease;
   box-shadow: 0 0 10px #00f7ff;
-  transition: 0.3s;
 }
 
-.btn-neon:hover {
+.navbar-minimal .btn-neon:hover {
   background-color: #00d7e9;
   box-shadow: 0 0 15px #00d7e9;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1000px;
+  max-width: 600px;
   margin: 100px auto 40px;
-  padding: 20px;
+  padding: 30px;
   background-color: #111;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+  text-align: center;
 }
 
 .container h2 {
   color: #00f7ff;
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
 .container p {
-  margin-bottom: 20px;
   color: #ccc;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
-/* TABLE */
-.table-wrapper {
-  overflow-x: auto;
+.qr-img {
+  width: 220px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+/* FORM */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: stretch;
 }
 
-th, td {
-  border: 1px solid #444;
+.upload-form label {
+  font-weight: bold;
+  color: #00f7ff;
+  text-align: left;
+}
+
+.upload-form input[type="file"] {
+  background-color: #222;
+  color: #00f7ff;
+  border: 1px solid #00f7ff;
   padding: 10px;
-  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-th {
+.upload-form .btn-submit {
   background-color: #00f7ff;
   color: #000;
-}
-
-td {
-  color: white;
-}
-
-.status.acc {
-  color: limegreen;
   font-weight: bold;
-}
-
-.status.cancelled {
-  color: red;
-  font-weight: bold;
-}
-
-.status.menunggu_validasi {
-  color: orange;
-  font-weight: bold;
-}
-
-/* TOMBOL MINI */
-.btn-mini {
-  background-color: #00f7ff;
-  color: #000;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   transition: 0.3s;
-  display: inline-block;
+  box-shadow: 0 0 10px #00f7ff;
 }
 
-.btn-mini:hover {
+.upload-form .btn-submit:hover {
   background-color: #00d7e9;
-}
-
-.btn-mini.cancel {
-  background-color: #ff4444;
-  color: white;
-}
-
-.btn-mini.cancel:hover {
-  background-color: #dd2222;
-}
-
-.text-muted {
-  color: gray;
-  font-style: italic;
+  box-shadow: 0 0 15px #00d7e9;
 }

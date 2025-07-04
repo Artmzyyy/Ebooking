@@ -26,7 +26,7 @@ if (isset($_POST['register'])) {
         }
     }
 
-    header("Location: index.php");
+header("Location: ../index.php");
     exit();
 }
 
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
 
     $_SESSION['login_error'] = 'Email atau password yang anda masukkan salah!';
     $_SESSION['active_form'] = 'login';
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 

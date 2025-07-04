@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <title>Booking Lapangan Futsal</title>
-  <link rel="stylesheet" href="../assets/css/lapangan.css" />
+  <link rel="stylesheet" href="../assets/css/booking.css" />
 </head>
 <body>
+  <!-- NAVBAR -->
+<nav class="navbar-minimal">
+  <a href="user_page.php" class="btn-neon">← Kembali ke Menu</a>
+</nav>
+
+
   <div class="container">
     <div class="card">
-      <img src="../image.png" alt="futsal" />
+      <img src="../assets/img/futsal2.jpg" alt="futsal" />
     </div>
 
     <form class="card" action="../action/proses_booking.php" method="POST" onsubmit="return validateBooking()">

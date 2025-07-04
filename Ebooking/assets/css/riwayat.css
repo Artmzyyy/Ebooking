@@ -1,44 +1,122 @@
-@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap");
-
+/* Reset dasar */
 * {
-  font-family: "League Spartan", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
+
 body {
-  background: #f5f5f5;
-  font-family: Arial, sans-serif;
-  padding: 30px;
+  background-color: #0a0a0a;
+  color: white;
+  min-height: 100vh;
 }
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 247, 255, 0.3);
+}
+
+.logo-sportslot {
+  height: 50px;
+  margin-top: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.halo-user {
+  color: #00f7ff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-neon {
+  background-color: #00f7ff;
+  color: #000;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+.btn-neon:hover {
+  background-color: #00d7e9;
+  box-shadow: 0 0 15px #00d7e9;
+}
+/* CONTAINER UTAMA */
+.container {
+  max-width: 900px;
+  margin: 100px auto 40px;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+}
+
 h2 {
-  color: #061153;
-  padding-bottom: 20px;
-  font-size: 34px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00f7ff;
 }
 
-p {
-  font-size: 24px;
-}
-
+/* TABEL */
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: white;
 }
-th,
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
+
+table th, table td {
+  border: 1px solid #444;
+  padding: 10px;
   text-align: center;
 }
-th {
-  background: #061153;
-  color: white;
-  font-weight: normal;
+
+table th {
+  background-color: #00f7ff;
+  color: #000;
 }
-.status-pending {
+
+/* STATUS */
+.status.acc {
+  color: limegreen;
+  font-weight: bold;
+}
+
+.status.pending {
   color: orange;
   font-weight: bold;
+}
+
+.status.cancel {
+  color: red;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background-color: #000;
+  color: #888;
 }
