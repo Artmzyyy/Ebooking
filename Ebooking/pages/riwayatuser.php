@@ -31,28 +31,38 @@ $result = $conn->query("SELECT * FROM bookings WHERE user_id = '$user_id' ORDER 
 </nav>
   <div class="container">
     <h2>Riwayat Booking Anda</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Lapangan</th>
-          <th>Tanggal</th>
-          <th>Jam</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php while ($row = $result->fetch_assoc()): ?>
-          <tr>
-            <td><?= htmlspecialchars($row['lapangan']); ?></td>
-            <td><?= htmlspecialchars($row['tanggal']); ?></td>
-            <td><?= htmlspecialchars($row['jam']); ?></td>
-            <td class="status <?= $row['status']; ?>">
-              <?= strtoupper($row['status']); ?>
-            </td>
-          </tr>
-        <?php endwhile; ?>
-      </tbody>
-    </table>
+    <table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>Lapangan</th>
+    <th>Tanggal</th>
+    <th>Jam</th>
+    <th>Status</th>
+    <th>Aksi</th>
+  </tr>
+
+  <?php while ($row = $result->fetch_assoc()): ?>
+    <tr>
+      <td><?= $row['lapangan']; ?></td>
+      <td><?= $row['tanggal']; ?></td>
+      <td><?= $row['jam']; ?></td>
+      <td style="color:
+        <?= $row['status'] == 'acc' ? 'green' :
+           ($row['status'] == 'pending' ? 'orange' :
+           ($row['status'] == 'cancelled' ? 'red' : 'gray')) ?>;">
+        <?= strtoupper($row['status']); ?>
+      </td>
+
+      <td>
+        <?php if ($row['status'] == 'pending'): ?>
+          <a href="pembayaran.php?id=<?= $row['id']; ?>">💸 Bayar</a> |
+          <a href="batal_booking.php?id=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin batalkan booking?')">❌ Batal</a>
+        <?php else: ?>
+          -
+        <?php endif; ?>
+      </td>
+    </tr>
+  <?php endwhile; ?>
+</table>
   </div>
 
   <footer class="footer">
