@@ -6,7 +6,7 @@ require_once '../config/connect.php';
 ob_start();
 
 if (isset($_POST['register'])) {
-    $name = $_POST['nama'];
+    $name = ucwords(strtolower(trim($_POST['nama'])));
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];

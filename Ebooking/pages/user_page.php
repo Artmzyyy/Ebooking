@@ -20,7 +20,7 @@ if (!isset($_SESSION['email'])) {
       <img src="../assets/img/fairnew.png" alt="Logo Sportslot" class="logo-sportslot">
     </div>
     <div class="nav-right">
-      <p class="halo-user">Halo, <?= $_SESSION['nama']; ?></p>
+      <p class="halo-user">Selamat datang, <?= $_SESSION['nama']; ?>!</p>
       <a href="../pages/riwayatuser.php" class="btn-neon">Cek Riwayat Booking</a>
       <a href="../action/logout.php" class="btn-neon">Logout</a>
     </div>

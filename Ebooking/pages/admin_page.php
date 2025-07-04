@@ -22,7 +22,7 @@ $result = $conn->query("SELECT bookings.*, users.nama
 <body>
   <!-- NAVBAR -->
   <nav class="navbar-minimal">
-    <a href="admin_user.php" class="btn-neon">👥 Cek Data User</a>
+    <!-- <a href="admin_user.php" class="btn-neon">👥 Cek Data User</a> -->
     <a href="../action/logout.php" class="btn-neon">Logout</a>
   </nav>
 

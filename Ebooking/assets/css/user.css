@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 /* BODY */
@@ -30,7 +30,7 @@ nav {
 }
 
 .logo-sportslot {
-  height: 50px;
+  height: 70px;
   margin-top: 10px;
 }
 
